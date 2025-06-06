@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Bird Toy Company - Handcrafted Wooden Toys</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS Files -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/reviews.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+    <!-- Premium Header -->
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand floating" href="home.html">
+                    <img src="imgs/Main Logo.png" alt="Little Bird Toy Company Logo" height="55">
+                </a>
+                
+                <button class="navbar-toggler shadow-premium" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="home.html" aria-current="page">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="products.html">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Premium Hero Section -->
+        <section class="hero-section text-white py-5">
+            <div class="container">
+                <div class="row align-items-center min-vh-75">
+                    <div class="col-lg-6">
+                        <h1 class="display-4 fw-bold mb-4">Handcrafted Wooden Toys for Generations</h1>
+                        <p class="lead mb-4">Discover our collection of heirloom-quality wooden toys, designed to spark imagination and create lasting memories. Made with love in Toms River, NJ since 2018.</p>
+                        <div class="d-flex gap-3 flex-wrap justify-content-center justify-content-lg-start">
+                            <a href="products.html" class="btn btn-warning btn-lg shadow-premium-hover">
+                                <i class="bi bi-cart-plus me-2"></i>Shop Now
+                            </a>
+                            <a href="about.html" class="btn btn-outline-light btn-lg shadow-premium-hover">
+                                <i class="bi bi-heart me-2"></i>Our Story
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <img src="imgs/train1.jpg" alt="Handcrafted wooden train showcasing premium quality" class="img-fluid hero-image shadow-premium floating">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Premium Featured Products Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold text-primary">Featured Products</h2>
+                    <p class="lead text-muted">Discover our most popular handcrafted wooden toys</p>
+                </div>
+                
+                <div class="row" id="featured-products">
+                    <!-- Products will be loaded by JavaScript -->
+                </div>
+                
+                <div class="text-center mt-5">
+                    <a href="products.html" class="btn btn-primary btn-lg shadow-premium-hover">
+                        <i class="bi bi-grid-3x3-gap me-2"></i>View All Products
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Premium Customer Reviews Section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold text-primary">What Our Customers Say</h2>
+                    <p class="lead text-muted">Real reviews from families who love our toys</p>
+                </div>
+                
+                <div class="row" id="customer-reviews">
+                    <!-- Reviews will be loaded by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Premium About Preview Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <img src="imgs/block1.jpg" alt="Wooden blocks being crafted in our workshop" class="img-fluid rounded shadow-premium floating">
+                    </div>
+                    <div class="col-lg-6">
+                        <h2 class="display-5 fw-bold text-primary mb-4">Our Commitment to Quality</h2>
+                        <p class="lead mb-4">Since 2018, Little Bird Toys has been creating heirloom-quality wooden toys that spark imagination and bring families together. Each piece is handcrafted from sustainable Baltic birch wood in our Toms River, NJ workshop.</p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-3 d-flex align-items-center">
+                                <div class="feature-icon me-3" style="width: 40px; height: 40px; font-size: 1rem;">
+                                    <i class="bi bi-tree"></i>
+                                </div>
+                                <span><strong>Sustainable materials</strong> - Baltic birch wood</span>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <div class="feature-icon me-3" style="width: 40px; height: 40px; font-size: 1rem;">
+                                    <i class="bi bi-shield-check"></i>
+                                </div>
+                                <span><strong>Safety tested</strong> - ASTM & CA-Prop 65 certified</span>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <div class="feature-icon me-3" style="width: 40px; height: 40px; font-size: 1rem;">
+                                    <i class="bi bi-flag-usa"></i>
+                                </div>
+                                <span><strong>Made in USA</strong> - Toms River, NJ</span>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <div class="feature-icon me-3" style="width: 40px; height: 40px; font-size: 1rem;">
+                                    <i class="bi bi-infinity"></i>
+                                </div>
+                                <span><strong>Lifetime durability</strong> - Built to last generations</span>
+                            </li>
+                        </ul>
+                        <a href="about.html" class="btn btn-primary btn-lg shadow-premium-hover">
+                            <i class="bi bi-arrow-right me-2"></i>Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Premium Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <img src="imgs/LBTCo-BW-bird-logo-cropped.png" alt="Little Bird Toys Logo" height="70" class="mb-3 floating">
+                    <p class="lead">Handcrafted wooden toys designed to spark imagination and create lasting memories.</p>
+                    <div class="social-links d-flex gap-2">
+                        <a href="https://facebook.com/LittleBirdToyCo" target="_blank" rel="noopener" aria-label="Follow us on Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://instagram.com/LittleBirdToyCo" target="_blank" rel="noopener" aria-label="Follow us on Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://twitter.com/LittleBirdToys" target="_blank" rel="noopener" aria-label="Follow us on Twitter">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href="https://snapchat.com/add/LittleBirdToys" target="_blank" rel="noopener" aria-label="Follow us on Snapchat">
+                            <i class="bi bi-snapchat"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="home.html" class="text-white-50 text-decoration-none d-flex align-items-center">
+                                <i class="bi bi-house me-2"></i>Home
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="about.html" class="text-white-50 text-decoration-none d-flex align-items-center">
+                                <i class="bi bi-heart me-2"></i>About
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="products.html" class="text-white-50 text-decoration-none d-flex align-items-center">
+                                <i class="bi bi-grid-3x3-gap me-2"></i>Products
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="contact.html" class="text-white-50 text-decoration-none d-flex align-items-center">
+                                <i class="bi bi-envelope me-2"></i>Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">Visit Our Store</h5>
+                    <div class="d-flex align-items-start mb-2">
+                        <i class="bi bi-geo-alt text-warning me-2 mt-1"></i>
+                        <span class="text-white-50">43 Main St, Toms River, NJ 08753</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="bi bi-telephone text-warning me-2"></i>
+                        <a href="tel:+17325551234" class="text-white-50 text-decoration-none">(732) 555-1234</a>
+                    </div>
+                    <div class="d-flex align-items-start">
+                        <i class="bi bi-clock text-warning me-2 mt-1"></i>
+                        <div class="text-white-50">
+                            <strong>Hours:</strong><br>
+                            Mon-Fri: 7:00 AM - 4:30 PM<br>
+                            Saturday: 10:00 AM - 2:00 PM<br>
+                            Sunday: Closed
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 opacity-25">
+            <div class="text-center">
+                <p class="mb-0 text-white-50">
+                    &copy; 2024 Little Bird Toy Company. All rights reserved. | 
+                    <span class="text-warning">Crafted with ❤️ in New Jersey</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/reviews.js"></script>
+</body>
+</html>
