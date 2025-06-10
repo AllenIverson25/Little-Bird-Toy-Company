@@ -1,0 +1,320 @@
+/* Navigation Styles for Little Bird Toy Company */
+
+/* Main Navigation Bar */
+.navbar {
+    background: transparent !important;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: none;
+    transition: all 0.3s ease;
+    padding: 1rem 0;
+    position: relative;
+    z-index: 999;
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 4px 20px var(--shadow-light);
+    padding: 0.5rem 0;
+}
+
+.navbar-brand {
+    position: relative;
+    transition: none;
+    z-index: 1002;
+}
+
+.navbar-brand img {
+    transition: none;
+    filter: none;
+}
+
+.navbar-brand:hover img {
+    transform: none;
+    filter: none;
+}
+
+/* Hide default Bootstrap navigation */
+.navbar-nav {
+    display: none !important;
+}
+
+.navbar-toggler {
+    display: none !important;
+}
+
+/* Ensure navbar doesn't interfere with menu button */
+.navbar .container {
+    position: relative;
+    z-index: 998;
+}
+
+/* Override any potential Bootstrap navbar extensions */
+.navbar::after,
+.navbar::before {
+    display: none !important;
+}
+
+/* Full-Screen Menu Button */
+.menu-toggle {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    background: #8B4513;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 9999;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(139, 69, 19, 0.3);
+}
+
+.menu-toggle:hover {
+    transform: scale(1.1);
+    background: #A0522D;
+    box-shadow: 0 6px 25px rgba(139, 69, 19, 0.4);
+}
+
+.menu-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Ensure menu button is always visible */
+.menu-toggle {
+    pointer-events: auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Override any potential conflicts with the menu button */
+.menu-toggle {
+    position: fixed !important;
+    z-index: 9999 !important;
+}
+
+/* Hamburger Icon */
+.hamburger {
+    width: 24px;
+    height: 18px;
+    position: relative;
+    transform: rotate(0deg);
+    transition: 0.3s ease-in-out;
+}
+
+.hamburger span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: white;
+    border-radius: 2px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+}
+
+.hamburger span:nth-child(1) {
+    top: 0px;
+}
+
+.hamburger span:nth-child(2) {
+    top: 7px;
+}
+
+.hamburger span:nth-child(3) {
+    top: 14px;
+}
+
+/* Hamburger Animation to X */
+.menu-toggle.active .hamburger span:nth-child(1) {
+    top: 7px;
+    transform: rotate(135deg);
+}
+
+.menu-toggle.active .hamburger span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+}
+
+.menu-toggle.active .hamburger span:nth-child(3) {
+    top: 7px;
+    transform: rotate(-135deg);
+}
+
+/* Full-Screen Navigation Overlay */
+.fullscreen-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #CD853F 0%, #D2691E 50%, #8B4513 100%);
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.fullscreen-nav.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.fullscreen-nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="40" cy="80" r="1.5" fill="rgba(255,255,255,0.08)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.nav-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    margin: 1.5rem 0;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fullscreen-nav.active .nav-links li {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fullscreen-nav.active .nav-links li:nth-child(1) { transition-delay: 0.1s; }
+.fullscreen-nav.active .nav-links li:nth-child(2) { transition-delay: 0.2s; }
+.fullscreen-nav.active .nav-links li:nth-child(3) { transition-delay: 0.3s; }
+.fullscreen-nav.active .nav-links li:nth-child(4) { transition-delay: 0.4s; }
+
+.nav-links a {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #2C1810;
+    letter-spacing: -0.02em;
+    line-height: 0.9;
+    display: block;
+    position: relative;
+    transition: all 0.3s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links a:hover {
+    color: #FFFFFF;
+    transform: translateX(20px);
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: #2C1810;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+    background: #FFFFFF;
+}
+
+/* Footer in Navigation */
+.nav-footer {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(44, 24, 16, 0.7);
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.6s ease 0.5s;
+}
+
+.fullscreen-nav.active .nav-footer {
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-toggle {
+        top: 1.5rem;
+        right: 1.5rem;
+        width: 50px;
+        height: 50px;
+    }
+
+    .nav-links a {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+
+    .nav-footer {
+        font-size: 0.8rem;
+        bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-toggle {
+        width: 45px;
+        height: 45px;
+    }
+
+    .hamburger {
+        width: 20px;
+        height: 15px;
+    }
+
+    .hamburger span {
+        height: 2px;
+    }
+
+    .hamburger span:nth-child(2) {
+        top: 6px;
+    }
+
+    .hamburger span:nth-child(3) {
+        top: 12px;
+    }
+
+    .menu-toggle.active .hamburger span:nth-child(1),
+    .menu-toggle.active .hamburger span:nth-child(3) {
+        top: 6px;
+    }
+}

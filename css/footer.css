@@ -1,0 +1,100 @@
+/* Footer Styles for Little Bird Toy Company */
+
+/* Footer Enhancement */
+footer {
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #34495e 100%) !important;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-accent);
+}
+
+/* Premium Social Links */
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-accent);
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover::before {
+    transform: scale(1);
+}
+
+.social-links a i {
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
+}
+
+.social-links a:hover i {
+    color: var(--text-dark) !important;
+    transform: rotate(360deg);
+}
+
+/* Footer Links */
+footer a {
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--accent-color) !important;
+    transform: translateX(5px);
+}
+
+/* Footer Typography */
+footer h5 {
+    color: var(--white);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+footer .lead {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .social-links a {
+        width: 45px;
+        height: 45px;
+        margin: 0.25rem;
+    }
+    
+    footer .col-lg-4 {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+}
