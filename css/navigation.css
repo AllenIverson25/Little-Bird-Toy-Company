@@ -250,6 +250,17 @@
     background: #FFFFFF;
 }
 
+/* Remove yellow outline from navigation links */
+.nav-links a:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.fullscreen-nav a:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
 /* Footer in Navigation */
 .nav-footer {
     position: absolute;
