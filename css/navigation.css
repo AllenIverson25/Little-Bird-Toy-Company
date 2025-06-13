@@ -29,11 +29,18 @@
 .navbar-brand img {
     transition: none;
     filter: none;
+    animation: none !important;
 }
 
 .navbar-brand:hover img {
     transform: none;
     filter: none;
+    animation: none !important;
+}
+
+/* Remove floating animation from navbar logo */
+.navbar-brand.floating {
+    animation: none !important;
 }
 
 /* Hide default Bootstrap navigation */
@@ -113,12 +120,13 @@
     position: absolute;
     height: 3px;
     width: 100%;
-    background: white;
+    background: #FFFFFF;
     border-radius: 2px;
     opacity: 1;
     left: 0;
     transform: rotate(0deg);
     transition: 0.25s ease-in-out;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .hamburger span:nth-child(1) {
