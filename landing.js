@@ -1,17 +1,17 @@
 // Landing page functionality for Little Bird Toy Company
 
 document.addEventListener('DOMContentLoaded', function() {
-    const skipBtn = document.getElementById('skipBtn');
-    const landingPage = document.getElementById('landingPage');
-    const landingLogo = document.getElementById('landingLogo');
-    const countdown = document.getElementById('countdown');
-    const progressFill = document.getElementById('progressFill');
+    let skipBtn = document.getElementById('skipBtn');
+    let landingPage = document.getElementById('landingPage');
+    let landingLogo = document.getElementById('landingLogo');
+    let countdown = document.getElementById('countdown');
+    let progressFill = document.getElementById('progressFill');
     
     let timeLeft = 5;
     let autoTransition = true;
     
     // Countdown timer
-    const timer = setInterval(() => {
+    let timer = setInterval(() => {
         if (!autoTransition) return;
         
         timeLeft--;

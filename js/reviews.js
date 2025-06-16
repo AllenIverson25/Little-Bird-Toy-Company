@@ -1,7 +1,11 @@
-// Customer Reviews functionality for Little Bird Toy Company
+/**
+ * Customer Reviews JavaScript for Little Bird Toy Company
+ * This file handles displaying and managing customer reviews
+ * High School Level JavaScript - Uses simple let declarations and basic functions
+ */
 
-// Customer Reviews Data Array
-const reviews = [
+// Customer Reviews Data Array - Contains reviews from our customers
+let reviews = [
     {
         name: "Sarah Johnson",
         review: "Beautiful craftsmanship! My daughter loves her wooden train set. It's built to last and so much better than plastic toys.",
@@ -75,21 +79,19 @@ function displayReviews() {
     });
 }
 
-// Add stagger animation to review cards
+// Add stagger animation to review cards - DISABLED
 function staggerReviewCards() {
-    const reviewCards = document.querySelectorAll('.review-card');
-    reviewCards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.15}s`;
-        card.classList.add('fade-in-up');
-    });
+    // Disabled animations to prevent bugs
+    let reviewCards = document.querySelectorAll('.review-card');
+    for (let i = 0; i < reviewCards.length; i++) {
+        reviewCards[i].style.animationDelay = '0s';
+    }
 }
 
 // Initialize reviews functionality
 document.addEventListener('DOMContentLoaded', function() {
     displayReviews();
-    
-    // Initialize animations
-    setTimeout(() => {
-        staggerReviewCards();
-    }, 500);
+
+    // Disabled animations to prevent bugs
+    staggerReviewCards();
 });

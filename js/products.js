@@ -1,7 +1,12 @@
-// Product functionality for Little Bird Toy Company
+/**
+ * Products JavaScript for Little Bird Toy Company
+ * This file contains all product data and functions for displaying products
+ * High School Level JavaScript - Uses modern let declarations and basic functions
+ */
 
-// Product Data Array
-const products = [
+// Product Data Array - Contains all our toy products with their information
+// Each product has: id, name, price, age group, images, description, and dimensions
+let products = [
     {
         id: 1,
         name: "Wooden Airplane",
@@ -54,133 +59,186 @@ const products = [
     }
 ];
 
-// Function to display featured products on home page
+/**
+ * Display featured products on the home page
+ * This function shows the first 3 products in a special featured section
+ */
 function displayFeaturedProducts() {
-    const featuredContainer = document.getElementById('featured-products');
+    // Find the container where featured products should go
+    let featuredContainer = document.getElementById('featured-products');
+
+    // If container doesn't exist, stop here
     if (!featuredContainer) return;
 
-    // Show first 3 products as featured
-    const featuredProducts = products.slice(0, 3);
-    
-    featuredProducts.forEach(product => {
-        const productCard = `
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card product-card h-100 shadow-sm">
-                    <img src="${product.image}" class="card-img-top product-image" alt="${product.name}">
-                    <div class="card-body d-flex flex-column">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
-                            <h5 class="card-title">${product.name}</h5>
-                            <span class="product-age">${product.age}</span>
-                        </div>
-                        <p class="card-text flex-grow-1">${product.description}</p>
-                        <div class="d-flex justify-content-between align-items-center mt-auto">
-                            <span class="product-price">$${product.price}</span>
-                            <button class="btn btn-primary btn-sm" onclick="viewProduct(${product.id})">
-                                Learn More
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
+    // Get the first 3 products to show as featured
+    let featuredProducts = products.slice(0, 3);
+
+    // Loop through each featured product and create HTML for it
+    for (let i = 0; i < featuredProducts.length; i++) {
+        let product = featuredProducts[i];
+
+        // Create HTML card for this product
+        let productCard = '<div class="col-lg-4 col-md-6 mb-4">' +
+            '<div class="card product-card h-100 shadow-sm">' +
+                '<img src="' + product.image + '" class="card-img-top product-image" alt="' + product.name + '">' +
+                '<div class="card-body d-flex flex-column">' +
+                    '<div class="d-flex justify-content-between align-items-start mb-2">' +
+                        '<h5 class="card-title">' + product.name + '</h5>' +
+                        '<span class="product-age">' + product.age + '</span>' +
+                    '</div>' +
+                    '<p class="card-text flex-grow-1">' + product.description + '</p>' +
+                    '<div class="d-flex justify-content-between align-items-center mt-auto">' +
+                        '<span class="product-price">$' + product.price + '</span>' +
+                        '<button class="btn btn-primary btn-sm" onclick="viewProduct(' + product.id + ')">' +
+                            'Learn More' +
+                        '</button>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+        '</div>';
+
+        // Add this product card to the container
         featuredContainer.innerHTML += productCard;
-    });
+    }
 }
 
-// Function to display all products on products page
+/**
+ * Display all products on the products page
+ * This function shows every product in our catalog with full details
+ */
 function displayAllProducts() {
-    const productsContainer = document.getElementById('all-products');
+    // Find the container where all products should go
+    let productsContainer = document.getElementById('all-products');
+
+    // If container doesn't exist, stop here
     if (!productsContainer) return;
 
-    products.forEach(product => {
-        const productCard = `
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card product-card h-100 shadow-sm">
-                    <img src="${product.image}" class="card-img-top product-image" alt="${product.name}" id="product-image-${product.id}">
-                    <div class="card-body d-flex flex-column">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
-                            <h5 class="card-title">${product.name}</h5>
-                            <span class="product-age">${product.age}</span>
-                        </div>
-                        <p class="card-text flex-grow-1" id="product-desc-${product.id}">${product.description}</p>
-                        <div class="mb-3">
-                            <small class="text-muted">Dimensions: ${product.dimensions}</small>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mt-auto">
-                            <span class="product-price">$${product.price}</span>
-                            <div class="btn-group">
-                                <button class="btn btn-outline-primary btn-sm" onclick="changeProductImage(${product.id})">
-                                    <i class="bi bi-images"></i> View More
-                                </button>
-                                <button class="btn btn-primary btn-sm" onclick="viewProduct(${product.id})">
-                                    Details
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
+    // Loop through every product in our catalog
+    for (let i = 0; i < products.length; i++) {
+        let product = products[i];
+
+        // Create HTML card for this product (more detailed than featured products)
+        let productCard = '<div class="col-lg-4 col-md-6 mb-4">' +
+            '<div class="card product-card h-100 shadow-sm">' +
+                '<img src="' + product.image + '" class="card-img-top product-image" alt="' + product.name + '" id="product-image-' + product.id + '">' +
+                '<div class="card-body d-flex flex-column">' +
+                    '<div class="d-flex justify-content-between align-items-start mb-2">' +
+                        '<h5 class="card-title">' + product.name + '</h5>' +
+                        '<span class="product-age">' + product.age + '</span>' +
+                    '</div>' +
+                    '<p class="card-text flex-grow-1" id="product-desc-' + product.id + '">' + product.description + '</p>' +
+                    '<div class="mb-3">' +
+                        '<small class="text-muted">Dimensions: ' + product.dimensions + '</small>' +
+                    '</div>' +
+                    '<div class="d-flex justify-content-between align-items-center mt-auto">' +
+                        '<span class="product-price">$' + product.price + '</span>' +
+                        '<div class="btn-group">' +
+                            '<button class="btn btn-outline-primary btn-sm" onclick="changeProductImage(' + product.id + ')">' +
+                                '<i class="bi bi-images"></i> View More' +
+                            '</button>' +
+                            '<button class="btn btn-primary btn-sm" onclick="viewProduct(' + product.id + ')">' +
+                                'Details' +
+                            '</button>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+        '</div>';
+
+        // Add this product card to the container
         productsContainer.innerHTML += productCard;
-    });
+    }
 }
 
-// Product variation feature - cycle through product images
+/**
+ * Product image cycling feature
+ * This allows users to see different images of the same product
+ */
+
+// Keep track of which image is currently showing for each product
 let currentImageIndex = {};
 
+/**
+ * Change to the next image for a specific product
+ * This function cycles through all available images for a product
+ * @param {number} productId - The ID of the product to change image for
+ */
 function changeProductImage(productId) {
-    const product = products.find(p => p.id === productId);
+    // Find the product in our array
+    let product = products.find(function(p) { return p.id === productId; });
+
+    // If product doesn't exist or has no extra images, stop here
     if (!product || !product.images) return;
 
-    // Initialize index if not exists
+    // If this is the first time clicking for this product, start at image 0
     if (!currentImageIndex[productId]) {
         currentImageIndex[productId] = 0;
     }
 
-    // Move to next image
+    // Move to the next image (loop back to 0 if we reach the end)
     currentImageIndex[productId] = (currentImageIndex[productId] + 1) % product.images.length;
-    
-    // Update the image
-    const imageElement = document.getElementById(`product-image-${productId}`);
+
+    // Find the image element on the page and update it
+    let imageElement = document.getElementById('product-image-' + productId);
     if (imageElement) {
+        // Change to the new image
         imageElement.src = product.images[currentImageIndex[productId]];
-        
-        // Add a subtle animation
+
+        // Add a subtle fade effect for smooth transition
         imageElement.style.opacity = '0.7';
-        setTimeout(() => {
+        setTimeout(function() {
             imageElement.style.opacity = '1';
-        }, 150);
+        }, 150); // Wait 150 milliseconds then fade back in
     }
 }
 
-// View product details (modal)
+/**
+ * View detailed information about a product
+ * This function shows product details in a modal popup
+ * @param {number} productId - The ID of the product to view
+ */
 function viewProduct(productId) {
-    var product = products.find(function(p) { return p.id === productId; });
+    // Find the product in our array
+    let product = products.find(function(p) { return p.id === productId; });
+
+    // If product doesn't exist, stop here
     if (!product) return;
 
+    // If modal system is available, use it (preferred)
     if (typeof showProductModal === 'function') {
         showProductModal(productId);
     } else {
+        // Fallback to simple alert if modal system isn't loaded
         alert(product.name + '\n\nPrice: $' + product.price + '\nAge: ' + product.age + '\nDimensions: ' + product.dimensions + '\n\n' + product.description);
     }
 }
 
-// Add stagger animation to product cards
+/**
+ * Add stagger animation to product cards - DISABLED
+ * This function was used to animate product cards but is disabled to prevent bugs
+ */
 function staggerProductCards() {
-    const productCards = document.querySelectorAll('.product-card');
-    productCards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.1}s`;
-        card.classList.add('fade-in-up');
-    });
+    // Find all product cards on the page
+    let productCards = document.querySelectorAll('.product-card');
+
+    // Disable animations to prevent visual bugs
+    for (let i = 0; i < productCards.length; i++) {
+        productCards[i].style.animationDelay = '0s';
+    }
 }
 
-// Initialize product functionality
+/**
+ * Initialize all product functionality when page loads
+ * This is the main function that starts everything
+ */
 document.addEventListener('DOMContentLoaded', function() {
-    displayFeaturedProducts();
-    displayAllProducts();
-    
-    // Initialize animations
-    setTimeout(() => {
-        staggerProductCards();
-    }, 500);
+    // Make products array available globally for other files
+    window.products = products;
+
+    // Display products on the appropriate pages
+    displayFeaturedProducts();  // Show featured products on home page
+    displayAllProducts();       // Show all products on products page
+
+    // Set up animations (currently disabled)
+    staggerProductCards();
 });

@@ -1,153 +1,158 @@
 /**
- * Full-Screen Navigation for Little Bird Toy Company
- * Inspired by dacoit.design navigation overlay
+ * Simple Navigation JavaScript for Little Bird Toy Company
+ * Full-screen navigation menu system - Uses modern let declarations
  */
 
-class FullScreenNavigation {
-    constructor() {
-        this.menuToggle = document.getElementById('menuToggle');
-        this.fullscreenNav = document.getElementById('fullscreenNav');
-        this.isOpen = false;
-        this.init();
+// Global variables to track menu state
+let menuToggle = null;        // The hamburger menu button
+let fullscreenNav = null;     // The full-screen navigation overlay
+let isMenuOpen = false;       // Track if menu is currently open
+
+/**
+ * Initialize the navigation system when page loads
+ * This function sets up all the event listeners
+ */
+function initNavigation() {
+    // Find the menu button and navigation overlay in the HTML
+    menuToggle = document.getElementById('menuToggle');
+    fullscreenNav = document.getElementById('fullscreenNav');
+
+    // Make sure both elements exist before continuing
+    if (!menuToggle || !fullscreenNav) {
+        console.warn('Navigation elements not found');
+        return;
     }
 
-    init() {
-        if (!this.menuToggle || !this.fullscreenNav) {
-            console.warn('Navigation elements not found');
-            return;
+    // When user clicks the hamburger button, toggle the menu
+    menuToggle.addEventListener('click', function() {
+        toggleMenu();
+    });
+
+    // When user clicks any navigation link, close the menu
+    let navLinks = fullscreenNav.querySelectorAll('.nav-links a');
+    for (let i = 0; i < navLinks.length; i++) {
+        navLinks[i].addEventListener('click', function() {
+            closeMenu();
+        });
+    }
+
+    // When user presses Escape key, close the menu
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && isMenuOpen) {
+            closeMenu();
         }
+    });
 
-        // Bind events
-        this.menuToggle.addEventListener('click', () => this.toggleMenu());
-        
-        // Close menu when clicking on navigation links
-        const navLinks = this.fullscreenNav.querySelectorAll('.nav-links a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => this.closeMenu());
-        });
-
-        // Close menu with Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && this.isOpen) {
-                this.closeMenu();
-            }
-        });
-
-        // Prevent body scroll when menu is open
-        this.fullscreenNav.addEventListener('wheel', (e) => {
-            if (this.isOpen) {
-                e.preventDefault();
-            }
-        }, { passive: false });
-
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            if (this.isOpen && window.innerWidth > 768) {
-                // Optionally close menu on desktop resize
-                // this.closeMenu();
-            }
-        });
-    }
-
-    toggleMenu() {
-        if (this.isOpen) {
-            this.closeMenu();
-        } else {
-            this.openMenu();
+    // Prevent page scrolling when menu is open
+    fullscreenNav.addEventListener('wheel', function(e) {
+        if (isMenuOpen) {
+            e.preventDefault(); // Stop the scroll
         }
-    }
+    }, { passive: false });
+}
 
-    openMenu() {
-        this.isOpen = true;
-        this.menuToggle.classList.add('active');
-        this.fullscreenNav.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        
-        // Add accessibility attributes
-        this.menuToggle.setAttribute('aria-expanded', 'true');
-        this.fullscreenNav.setAttribute('aria-hidden', 'false');
-        
-        // Focus management
-        setTimeout(() => {
-            const firstLink = this.fullscreenNav.querySelector('.nav-links a');
-            if (firstLink) {
-                firstLink.focus();
-            }
-        }, 300);
-    }
-
-    closeMenu() {
-        this.isOpen = false;
-        this.menuToggle.classList.remove('active');
-        this.fullscreenNav.classList.remove('active');
-        document.body.style.overflow = '';
-        
-        // Add accessibility attributes
-        this.menuToggle.setAttribute('aria-expanded', 'false');
-        this.fullscreenNav.setAttribute('aria-hidden', 'true');
-        
-        // Return focus to menu button
-        this.menuToggle.focus();
-    }
-
-    // Public method to check if menu is open
-    isMenuOpen() {
-        return this.isOpen;
+/**
+ * Toggle the menu open or closed
+ * This function decides whether to open or close the menu
+ */
+function toggleMenu() {
+    if (isMenuOpen) {
+        closeMenu();  // If menu is open, close it
+    } else {
+        openMenu();   // If menu is closed, open it
     }
 }
 
-// Enhanced scroll behavior for navbar
-class NavbarScrollEffect {
-    constructor() {
-        this.navbar = document.querySelector('.navbar');
-        this.lastScrollTop = 0;
-        this.init();
-    }
+/**
+ * Open the full-screen navigation menu
+ * This function shows the menu and prevents page scrolling
+ */
+function openMenu() {
+    // Update our tracking variable
+    isMenuOpen = true;
 
-    init() {
-        if (!this.navbar) return;
+    // Add CSS classes to show the menu and animate the hamburger
+    menuToggle.classList.add('active');
+    fullscreenNav.classList.add('active');
 
-        window.addEventListener('scroll', () => this.handleScroll(), { passive: true });
-    }
+    // Prevent the page from scrolling behind the menu
+    document.body.style.overflow = 'hidden';
 
-    handleScroll() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        // Add scrolled class when scrolling down
-        if (scrollTop > 50) {
-            this.navbar.classList.add('scrolled');
-        } else {
-            this.navbar.classList.remove('scrolled');
+    // Set accessibility attributes for screen readers
+    menuToggle.setAttribute('aria-expanded', 'true');
+    fullscreenNav.setAttribute('aria-hidden', 'false');
+
+    // After animation completes, focus on first menu link
+    setTimeout(function() {
+        var firstLink = fullscreenNav.querySelector('.nav-links a');
+        if (firstLink) {
+            firstLink.focus(); // Help keyboard users navigate
         }
-
-        this.lastScrollTop = scrollTop;
-    }
+    }, 300); // Wait 300ms for animation to finish
 }
 
-// Initialize navigation when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize full-screen navigation
-    window.fullScreenNav = new FullScreenNavigation();
+/**
+ * Close the full-screen navigation menu
+ * This function hides the menu and restores page scrolling
+ */
+function closeMenu() {
+    // Update our tracking variable
+    isMenuOpen = false;
 
-    // Disabled navbar scroll effects
-    // window.navbarScroll = new NavbarScrollEffect();
-    
-    // Add smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+    // Remove CSS classes to hide the menu and reset hamburger
+    menuToggle.classList.remove('active');
+    fullscreenNav.classList.remove('active');
+
+    // Allow the page to scroll again
+    document.body.style.overflow = '';
+
+    // Set accessibility attributes for screen readers
+    menuToggle.setAttribute('aria-expanded', 'false');
+    fullscreenNav.setAttribute('aria-hidden', 'true');
+
+    // Return focus to the menu button
+    menuToggle.focus();
+}
+
+/**
+ * Add smooth scrolling to anchor links
+ * This makes clicking on links that go to sections on the same page scroll smoothly
+ */
+function initSmoothScrolling() {
+    // Find all links that start with # (anchor links)
+    let anchorLinks = document.querySelectorAll('a[href^="#"]');
+
+    // Add smooth scrolling to each anchor link
+    for (let i = 0; i < anchorLinks.length; i++) {
+        anchorLinks[i].addEventListener('click', function(e) {
+            e.preventDefault(); // Stop the normal jump behavior
+
+            // Find the target section
+            let targetId = this.getAttribute('href');
+            let target = document.querySelector(targetId);
+
+            // If target exists, scroll to it smoothly
             if (target) {
                 target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                    behavior: 'smooth',  // Smooth animation
+                    block: 'start'       // Align to top
                 });
             }
         });
-    });
-});
-
-// Export for potential external use
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { FullScreenNavigation, NavbarScrollEffect };
+    }
 }
+
+/**
+ * Initialize everything when the page loads
+ * This is the main function that starts the navigation system
+ */
+document.addEventListener('DOMContentLoaded', function() {
+    // Start the navigation system
+    initNavigation();
+
+    // Add smooth scrolling to anchor links
+    initSmoothScrolling();
+
+    // Log that navigation is ready
+    console.log('Navigation system initialized');
+});
