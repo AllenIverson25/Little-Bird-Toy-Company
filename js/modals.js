@@ -4,7 +4,7 @@
 
 // Show product details modal
 function showProductModal(productId) {
-    var product = products.find(function(p) { return p.id === productId; });
+    let product = products.find(function(p) { return p.id === productId; });
     if (!product) return;
     
     document.getElementById('productModalTitle').textContent = product.name;
@@ -18,17 +18,17 @@ function showProductModal(productId) {
     // Store product ID for add to cart
     document.getElementById('addToCartBtn').setAttribute('data-product-id', productId);
     
-    var modal = new bootstrap.Modal(document.getElementById('productModal'));
+    let modal = new bootstrap.Modal(document.getElementById('productModal'));
     modal.show();
 }
 
 // Add to cart function
 function addToCart(productId) {
-    var product = products.find(function(p) { return p.id === productId; });
+    let product = products.find(function(p) { return p.id === productId; });
     if (!product) return;
     
     // Close product modal first
-    var modal = bootstrap.Modal.getInstance(document.getElementById('productModal'));
+    let modal = bootstrap.Modal.getInstance(document.getElementById('productModal'));
     if (modal) {
         modal.hide();
     }
@@ -39,10 +39,10 @@ function addToCart(productId) {
 
 // Handle add to cart button click
 document.addEventListener('DOMContentLoaded', function() {
-    var addToCartBtn = document.getElementById('addToCartBtn');
+    let addToCartBtn = document.getElementById('addToCartBtn');
     if (addToCartBtn) {
         addToCartBtn.addEventListener('click', function() {
-            var productId = this.getAttribute('data-product-id');
+            let productId = this.getAttribute('data-product-id');
             if (productId) {
                 addToCart(parseInt(productId));
             }
