@@ -153,12 +153,16 @@ function changeProductImage(productId) {
     }
 }
 
-// View product details (modal or alert for demo)
+// View product details (modal)
 function viewProduct(productId) {
-    const product = products.find(p => p.id === productId);
+    var product = products.find(function(p) { return p.id === productId; });
     if (!product) return;
 
-    alert(`${product.name}\n\nPrice: $${product.price}\nAge: ${product.age}\nDimensions: ${product.dimensions}\n\n${product.description}\n\nThis would normally open a detailed product page or modal!`);
+    if (typeof showProductModal === 'function') {
+        showProductModal(productId);
+    } else {
+        alert(product.name + '\n\nPrice: $' + product.price + '\nAge: ' + product.age + '\nDimensions: ' + product.dimensions + '\n\n' + product.description);
+    }
 }
 
 // Add stagger animation to product cards

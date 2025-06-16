@@ -193,9 +193,40 @@
         </div>
     </footer>
 
+    <!-- Simple Product Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalTitle">Product Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img id="productModalImage" src="" class="img-fluid rounded">
+                        </div>
+                        <div class="col-md-6">
+                            <h4 id="productModalName">Product Name</h4>
+                            <p class="h5 text-warning" id="productModalPrice">$0.00</p>
+                            <p><strong>Age:</strong> <span id="productModalAge">All Ages</span></p>
+                            <p><strong>Size:</strong> <span id="productModalDimensions">N/A</span></p>
+                            <p id="productModalDescription">Product description.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="addToCartBtn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JavaScript Files -->
+    <script src="js/modals.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/main.js"></script>
     <script src="js/products.js"></script>
