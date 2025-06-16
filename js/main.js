@@ -11,12 +11,12 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeScrollEffects();
 });
 
-// Initialize animations
+// Initialize animations - DISABLED
 function initializeAnimations() {
-    // Add floating animation to elements with floating class
+    // Disabled floating animations to prevent bugs
     const floatingElements = document.querySelectorAll('.floating');
     floatingElements.forEach(element => {
-        element.style.animation = 'float 3s ease-in-out infinite';
+        element.style.animation = 'none';
     });
 }
 

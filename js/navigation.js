@@ -128,9 +128,9 @@ class NavbarScrollEffect {
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize full-screen navigation
     window.fullScreenNav = new FullScreenNavigation();
-    
-    // Initialize navbar scroll effects
-    window.navbarScroll = new NavbarScrollEffect();
+
+    // Disabled navbar scroll effects
+    // window.navbarScroll = new NavbarScrollEffect();
     
     // Add smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

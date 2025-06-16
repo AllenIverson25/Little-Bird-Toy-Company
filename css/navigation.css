@@ -1,61 +1,10 @@
 /* Navigation Styles for Little Bird Toy Company */
 
-/* Main Navigation Bar */
-.navbar {
-    background: transparent !important;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border-bottom: none;
-    transition: all 0.3s ease;
-    padding: 1rem 0;
-    position: relative;
-    z-index: 999;
-}
+/* Remove all navbar styling */
 
-.navbar.scrolled {
-    background: rgba(255, 255, 255, 0.95) !important;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 4px 20px var(--shadow-light);
-    padding: 0.5rem 0;
-}
 
-.navbar-brand {
-    position: relative;
-    transition: none;
-    z-index: 1002;
-}
 
-.navbar-brand img {
-    transition: none;
-    filter: none;
-}
 
-.navbar-brand:hover img {
-    transform: none;
-    filter: none;
-}
-
-/* Hide default Bootstrap navigation */
-.navbar-nav {
-    display: none !important;
-}
-
-.navbar-toggler {
-    display: none !important;
-}
-
-/* Ensure navbar doesn't interfere with menu button */
-.navbar .container {
-    position: relative;
-    z-index: 998;
-}
-
-/* Override any potential Bootstrap navbar extensions */
-.navbar::after,
-.navbar::before {
-    display: none !important;
-}
 
 /* Full-Screen Menu Button */
 .menu-toggle {
