@@ -144,15 +144,8 @@ function initSmoothScrolling() {
 
 /**
  * Initialize everything when the page loads
- * This is the main function that starts the navigation system
  */
 document.addEventListener('DOMContentLoaded', function() {
-    // Start the navigation system
     initNavigation();
-
-    // Add smooth scrolling to anchor links
     initSmoothScrolling();
-
-    // Log that navigation is ready
-    console.log('Navigation system initialized');
 });

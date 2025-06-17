@@ -214,22 +214,7 @@ function viewProduct(productId) {
 }
 
 /**
- * Add stagger animation to product cards - DISABLED
- * This function was used to animate product cards but is disabled to prevent bugs
- */
-function staggerProductCards() {
-    // Find all product cards on the page
-    let productCards = document.querySelectorAll('.product-card');
-
-    // Disable animations to prevent visual bugs
-    for (let i = 0; i < productCards.length; i++) {
-        productCards[i].style.animationDelay = '0s';
-    }
-}
-
-/**
  * Initialize all product functionality when page loads
- * This is the main function that starts everything
  */
 document.addEventListener('DOMContentLoaded', function() {
     // Make products array available globally for other files
@@ -238,7 +223,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // Display products on the appropriate pages
     displayFeaturedProducts();  // Show featured products on home page
     displayAllProducts();       // Show all products on products page
-
-    // Set up animations (currently disabled)
-    staggerProductCards();
 });

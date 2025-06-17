@@ -79,19 +79,7 @@ function displayReviews() {
     });
 }
 
-// Add stagger animation to review cards - DISABLED
-function staggerReviewCards() {
-    // Disabled animations to prevent bugs
-    let reviewCards = document.querySelectorAll('.review-card');
-    for (let i = 0; i < reviewCards.length; i++) {
-        reviewCards[i].style.animationDelay = '0s';
-    }
-}
-
 // Initialize reviews functionality
 document.addEventListener('DOMContentLoaded', function() {
     displayReviews();
-
-    // Disabled animations to prevent bugs
-    staggerReviewCards();
 });

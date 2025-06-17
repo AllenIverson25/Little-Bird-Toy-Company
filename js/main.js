@@ -1,35 +1,14 @@
 /**
  * Main JavaScript for Little Bird Toy Company
- * This file handles general site functionality and animations
+ * This file handles scroll effects for the website
  */
 
 /**
- * Main function that runs when the page loads
- * This starts all the basic functionality for the website
+ * Initialize scroll effects when page loads
  */
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Little Bird Toy Company - Main JS Loaded');
-
-    // Start the animation system (currently disabled)
-    initializeAnimations();
-
-    // Start the scroll effects system
     initializeScrollEffects();
 });
-
-/**
- * Initialize animations - CURRENTLY DISABLED
- * This function was used for floating animations but is disabled to prevent bugs
- */
-function initializeAnimations() {
-    // Find all elements that were supposed to float
-    let floatingElements = document.querySelectorAll('.floating');
-
-    // Disable their animations to prevent visual bugs
-    for (let i = 0; i < floatingElements.length; i++) {
-        floatingElements[i].style.animation = 'none';
-    }
-}
 
 /**
  * Initialize scroll effects
