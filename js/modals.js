@@ -1,8 +1,8 @@
 /**
  * Simple Modal Functions for Little Bird Toy Company
  * This file handles showing product details in popup windows (modals)
- * High School Level JavaScript - Uses modern let declarations and basic functions
- */
+
+
 
 /**
  * Show product details in a modal popup
