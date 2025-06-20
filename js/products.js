@@ -1,7 +1,7 @@
 /**
  * Products JavaScript for Little Bird Toy Company
  * This file contains all product data and functions for displaying products
- * High School Level JavaScript - Uses modern let declarations and basic functions
+
  */
 
 // Product Data Array - Contains all our toy products with their information
