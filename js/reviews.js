@@ -1,7 +1,7 @@
 /**
  * Customer Reviews JavaScript for Little Bird Toy Company
  * This file handles displaying and managing customer reviews
- * High School Level JavaScript - Uses simple let declarations and basic functions
+
  */
 
 // Customer Reviews Data Array - Contains reviews from our customers
